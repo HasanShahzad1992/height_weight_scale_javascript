@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      h1{color: gold;text-align: center;font-weight: bold}
+      button{background-color: brown;font-weight: bold}
+    </style>
+</head>
+<body>
+<h1>
+    Height weight converter
+</h1>
+<h2>
+    Please input your weight in kilograms
+    <input type="text" id="kilogram_weight" placeholder="kilograms">
+</h2>
+<button id="kg_converter">
+    Click to convert weight from kg to lb and ounces
+</button>
+
+<h2>
+    Please input your weight in pounds
+    <input type="text" id="pounds_weight" placeholder="pounds">
+</h2>
+<button id="pound_converter">
+    Click to convert weight from lb to kg and ounces
+</button>
+<h2>
+    Please input your weight in ounces
+    <input type="text" id="ounces_weight" placeholder="ounces">
+</h2>
+<button id="ounce_converter">
+    Click to convert weight from ounces to kg and lb
+</button>
+<h1 style="width: 350px;height: 350px" id="result">
+    Result weight
+</h1>
+
+<script>
+    let access_kilogram_input=document.getElementById("kilogram_weight");
+    let access_pound_input=document.getElementById("pounds_weight");
+    let access_ounces_input=document.getElementById("ounces_weight");
+
+    let kilogram_button=document.getElementById("kg_converter");
+    let pound_button=document.getElementById("pound_converter");
+    let ounce_button=document.getElementById("ounce_converter");
+
+    let result_box=document.getElementById("result");
+
+    kilogram_button.addEventListener("click",function(){
+        let kilogram_value=access_kilogram_input.value;
+        let conversion_to_pound=kilogram_value*2.2;
+        conversion_to_pound=conversion_to_pound+"lb"
+        let conversion_to_ounce=kilogram_value*35.2;
+        conversion_to_ounce=conversion_to_ounce+"oz"
+        let new_br_tag=document.createElement("br");
+        result_box.append(conversion_to_pound);
+        result_box.append(new_br_tag);
+        result_box.append(conversion_to_ounce);
+
+    });
+    pound_button.addEventListener("click",function (){
+        let pound_value=access_pound_input.value;
+        let conversion_to_kilogram=pound_value*0.45;
+        conversion_to_kilogram=conversion_to_kilogram+"kg"
+        let conversion_to_ounces=pound_value*16;
+        conversion_to_ounces=conversion_to_ounces+"oz"
+        let new_br_tag=document.createElement("br");
+        result_box.append(conversion_to_kilogram);
+        result_box.append(new_br_tag);
+        result_box.append(conversion_to_ounces);
+    });
+    ounce_button.addEventListener("click",function(){
+        let ounce_value=access_ounces_input.value;
+        let conversion_to_kilogram=ounce_value*0.028;
+        conversion_to_kilogram=conversion_to_kilogram+"kg";
+        let conversion_to_pound=ounce_value*0.0625;
+        conversion_to_pound=conversion_to_pound+"lb";
+        let new_br_tag=document.createElement("br");
+        result_box.append(conversion_to_kilogram);
+        result_box.append(new_br_tag);
+        result_box.append(conversion_to_pound);
+    });
+</script>
+</body>
+</html>
